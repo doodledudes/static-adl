@@ -1,0 +1,169 @@
+@import "~bulma/sass/utilities/_all";
+
+html#admin {
+  & {
+    background: #f2f2f2;
+  }
+  section:first-child {
+    padding-top: 0;
+  }
+  .card-content {
+    // padding: .5rem;
+  }
+  .card-header-title {
+    // color: #41bb72;
+    color: #576161;
+  }
+  .message {
+    table {
+      background: transparent;
+    }
+  }
+}
+
+aside {
+  .menu-wrap {
+    padding: 15px;
+  }
+  &.--admin {
+    & {
+      -webkit-overflow-scrolling: touch;
+      z-index: 4;
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      overflow-x: hidden;
+      overflow-y: scroll; /* has to be scroll, not auto */
+      background: #333;
+      transition: left ease-in-out .2s;
+      font-size: 1.1rem;
+    }
+    @include desktop {
+      & {
+        display: block;
+        left: 0;
+      }
+    }
+    &.visible {
+      left: 0;
+      & ~ .top-bar, & ~ .admin-wrap {
+        left: 250px;
+      }
+      &:not(.mobile) {
+        & ~ .top-bar, & ~ .admin-wrap {
+          left: 0;
+        }
+      }
+    }
+    li a {
+      svg.svg-inline--fa {
+        width: 25px;
+      }
+    }
+  }
+}
+
+.admin-wrap {
+  & {
+    position: relative;
+    left: 0;
+    padding: 91px 0 32px 0;
+    transition: left ease-in-out .2s;
+  }
+  @include touch {
+    & {
+      padding: 80px 15px 0;
+    }
+  }
+  @include desktop {
+    margin-left: 250px;
+  }
+}
+
+.admin-logo {
+  & {
+    height: 55px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include desktop {
+      background: darken(#333,3%);
+      outline: 1px solid darken(#333,5%);
+    }
+  }
+  img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.top-bar {
+  & {
+    width: calc(100% - 250px);
+    height: 56px;
+    margin-left: 250px;
+    box-shadow: 0 1px 3px rgba(10,10,10,0.1), 0 0 0 0 rgba(10,10,10,0.1);
+    transition: left ease-in-out .2s;
+  }
+  @include touch {
+    & {
+      justify-content: space-between;
+      width: 100%;
+      margin: 0;
+      background: #334141;
+    }
+  }
+  .mobile-menu {
+    & {
+      margin-left: 0;
+      margin-right: auto;
+    }
+    &:focus {
+      outline: 0;
+    }
+  }
+  .menu-drop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+}
+
+// ===============================[ADMIN CUSTOM CSS]============================
+.control {
+  input, textarea {
+    box-shadow: none;
+  }
+}
+// ===============================[ADMIN CUSTOM CSS END]========================
+
+
+// ===============================[LOGIN]========================
+.login-wrap {
+  & {
+    width: 400px;
+    max-width: 100%;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px;
+  }
+  .logo {
+    & {
+      // border-bottom: 1px solid #ddd;
+      margin-bottom: 15px;
+    }
+    img {
+      width: 120px;
+      margin: 15px auto;
+      display: block;
+    }
+  }
+}
