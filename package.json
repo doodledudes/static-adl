@@ -17,7 +17,8 @@
     "chart.js": "^2.7.2",
     "hchs-vue-charts": "^1.2.8",
     "nuxt": "^1.0.0",
-    "nuxt-buefy": "^0.1.0"
+    "nuxt-buefy": "^0.1.0",
+    "vue-loginservice": "^0.1.26"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",

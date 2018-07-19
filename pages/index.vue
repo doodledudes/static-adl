@@ -14,51 +14,59 @@
             //- blurb
           //- column
           .column.is-5
-            .card.login-as
-              .card-content
-                .content
-                  h3.title.is-3.has-text-black Login as
-                  .field
-                    .control.has-icons-left
-                      .select.is-medium.is-100p
-                        select.user-type
-                          option(value="admin") Company / Admin
-                          option(value="manager") Manager
-                          option(value="agent") Agent
-                        //- select
-                        span.icon.is-small.is-left
-                          i.fas.fa-user
-                        //- span
-                      //- .select
-                    //- control
-                  //- field
-                  .field
-                    .control.has-icons-left
-                      input.input.is-medium(type="text", placeholder="Email", value="")
-                      span.icon.is-small.is-left
-                        i.fas.fa-envelope
-                      //- span
-                    //- control
-                  //- field
-                  .field
-                    .control.has-icons-left
-                      input.input.is-medium(type="password", placeholder="Password", value="")
-                      span.icon.is-small.is-left
-                        i.fas.fa-key
-                      //- span
-                    //- control
-                  //- field
-                  br
-                  .field.is-grouped
-                    .control
-                      router-link.button.is-success.is-medium.login-button(to="dashboard-admin")
-                        | Login
-                      //- router-link
-                    //- control
-                  //- field
-                //- content
-              //- card-content
-            //- card
+
+
+
+            loginservice-login(@userchange="onUserChange")
+
+
+
+            //- br
+            //- .card.login-as
+            //-   .card-content
+            //-     .content
+            //-       h3.title.is-3.has-text-black Login as
+            //-       .field
+            //-         .control.has-icons-left
+            //-           .select.is-medium.is-100p
+            //-             select.user-type
+            //-               option(value="admin") Company / Admin
+            //-               option(value="manager") Manager
+            //-               option(value="agent") Agent
+            //-             //- select
+            //-             span.icon.is-small.is-left
+            //-               i.fas.fa-user
+            //-             //- span
+            //-           //- .select
+            //-         //- control
+            //-       //- field
+            //-       .field
+            //-         .control.has-icons-left
+            //-           input.input.is-medium(type="text", placeholder="Email", value="")
+            //-           span.icon.is-small.is-left
+            //-             i.fas.fa-envelope
+            //-           //- span
+            //-         //- control
+            //-       //- field
+            //-       .field
+            //-         .control.has-icons-left
+            //-           input.input.is-medium(type="password", placeholder="Password", value="")
+            //-           span.icon.is-small.is-left
+            //-             i.fas.fa-key
+            //-           //- span
+            //-         //- control
+            //-       //- field
+            //-       br
+            //-       .field.is-grouped
+            //-         .control
+            //-           router-link.button.is-success.is-medium.login-button(to="dashboard-admin")
+            //-             | Login
+            //-           //- router-link
+            //-         //- control
+            //-       //- field
+            //-     //- content
+            //-   //- card-content
+            //- //- card
           //- column
         //- columns
       //- container
@@ -67,13 +75,15 @@
 </template>
 
 <script>
-//- import AppLogo from '~/components/AppLogo.vue'
-//-
-//- export default {
-//-   components: {
-//-     AppLogo
-//-   }
-//- }
+export default {
+  methods: {
+    onUserChange () {
+      if (this.$authservice.user) {
+        this.$router.push('/dashboard-admin')
+      }
+    }
+  }
+}
 </script>
 
 <style>

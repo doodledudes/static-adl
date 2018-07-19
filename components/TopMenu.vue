@@ -26,20 +26,20 @@
           .is-hidden-desktop Notifications
           i.fas.fa-exclamation-triangle.is-hidden-touch
         //- a
-        .navbar-item.has-dropdown.is-hoverable
+        .navbar-item.has-dropdown.is-hoverable(v-if="haveLoginservice")
           a.navbar-link(href="")
             i.fas.fa-user-circle
-            | &nbsp;Rodan Luzuriaga
+            | &nbsp; {{username}}
           //- a
           .navbar-dropdown.is-boxed.is-right
-            a.navbar-item(href="")
+            router-link.navbar-item(to="/secure/profile")
               | Profile
             //- a
             a.navbar-item(href="")
               | Feedback / Contact Us
             //- a
             hr.navbar-divider
-            router-link.navbar-item(to="/")
+            a.navbar-item(@click="doLogout")
               | Log Out
             //- router-link
           //- navbar-dropdown
@@ -61,12 +61,32 @@ export default {
     }
   },
   props: ['visible'],
+  computed: {
+    haveLoginservice: function () {
+      if (this.$loginservice) {
+        return true
+      }
+      return false
+    },
+    username: function () {
+      console.log(`$loginservice is`, this.$loginservice)
+      // console.log(`username is`, this.$loginservice.username)
+      if (this.$loginservice && this.$loginservice.user) {
+        return this.$loginservice.user.fullname
+      }
+      return 'YARP'
+    }
+  },
   methods: {
     toggleNavbar() {
       this.isActive = !this.isActive
     },
     toggleMobileMenu: function() {
       this.$emit('update:visible', !this.visible)
+    },
+    doLogout: function () {
+      this.$authservice.logout()
+      this.$router.push('/')
     },
   }
 }

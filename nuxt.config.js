@@ -44,7 +44,8 @@ module.exports = {
   },
   plugins: [
     { src: '~/plugins/chart', ssr: false },
-    { src: '~/plugins/hchs-vue-charts', ssr: false }
+    { src: '~/plugins/hchs-vue-charts', ssr: false },
+    { src: '~plugins/vue-loginservice.js', ssr: false },
   ],
   modules: [
     'nuxt-buefy',
