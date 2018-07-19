@@ -84,6 +84,10 @@ nav {
           border-radius: 5px;
         }
       }
+      &.nuxt-link-active {
+        background-color: #191919;
+        color: whitesmoke;
+      }
     }
   }
 }
