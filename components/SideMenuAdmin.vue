@@ -33,7 +33,7 @@
           //- a
         //- li
         li
-          a
+          router-link(to="/forms-list-admin", exact)
             i.fas.fa-chart-bar
             | &nbsp;Forms / Temps
           //- a
