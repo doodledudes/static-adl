@@ -6,16 +6,12 @@ module.exports = {
   website : {
     protocol: 'http',
     host: 'localhost',
-    port: 6060,
-    // host: 'ttsyp1-a3.tooltwist.website',
-    // port: 80,
+    port: 3000,
   },
   api: {
     protocol: 'http',
     host: 'localhost',
-    port: 6060,
-    // host: 'ttsyp1-a3.tooltwist.website',
-    // port: 80,
+    port: 3000,
   },
   loginservice: {
 
